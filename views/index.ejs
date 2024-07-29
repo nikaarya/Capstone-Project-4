@@ -1,0 +1,54 @@
+<%-include('partials/header.ejs')%>
+
+<div class="titleDiv">
+    <h1><%= listTitle %></h1>
+</div>
+
+<div class="leftDiv">
+  <% for(let book of listBooks) { %>
+  <div class="boxInsideBox">
+    <p><%= book.title %></p>
+    <p><%= book.author %></p>
+    <p class="smallerTextTag"><%= book.first_name %> <%= book.last_name %></p>
+  </div>
+  <% } %>
+</div>
+
+
+  
+
+<div class="rightDiv">
+
+  <form class="newBookForm" action="/add" method="post">
+    <input class="newBookInput"
+      type="text"
+      name="newBookIsbn"
+      placeholder="ISBN"
+      autocomplete="off"
+      autofocus="true"
+    />
+    <br>
+    <input class="newBookInput"
+      type="text"
+      name="newBookTitle"
+      placeholder="Title"
+      autocomplete="off"
+      autofocus="true"
+    />
+    <br>
+    <input class="newBookInput"
+      type="text"
+      name="newBookAuthor"
+      placeholder="Author"
+      autocomplete="off"
+      autofocus="true"
+    />
+    <br>
+    <button class="add" type="submit" name="list" value="<%listTitle%>">
+      +
+    </button>
+  </div>
+  </form>
+</div>
+
+<%-include('partials/footer.ejs')%>
